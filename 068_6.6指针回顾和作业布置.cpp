@@ -1,11 +1,39 @@
 ﻿// 068_6.6指针回顾和作业布置.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-#include <iostream>
+#include <stdio.h>
+
+void exchange(int* numberA, int* numberB)
+{
+    int temp;
+    if (*numberA < *numberB)
+    {
+        temp = *numberA;
+        *numberA = *numberB;
+        *numberB = temp;
+    }
+}
+
+
+void bubbleSort(int* numberA, int* numberB, int* numberC)
+{
+    exchange(numberA, numberB);
+    exchange(numberB, numberC);
+    exchange(numberA, numberB);
+}
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a, b, c = 0;
+    scanf_s("%d %d %d", &a, &b, &c);
+
+    bubbleSort(&a, &b, &c);
+    printf("%d ", a);
+    printf("%d ", b);
+    printf("%d ", c);
+
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
